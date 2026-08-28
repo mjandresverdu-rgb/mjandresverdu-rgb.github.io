@@ -1,0 +1,15 @@
+# app-ads.txt — IAB Tech Lab, para las apps publicadas desde esta web.
+#
+# Declara quien esta autorizado a vender nuestro inventario publicitario. Los compradores
+# (DSPs) lo consultan antes de pujar, y muchos NO pujan por inventario que no lo tenga: sin
+# este fichero una parte de la demanda ni se presenta, y eso se nota en el relleno y en el
+# eCPM. Tambien es lo que impide que alguien se haga pasar por nuestra app para vender
+# impresiones falsas.
+#
+# Tiene que vivir en la RAIZ del dominio declarado como web del desarrollador en la ficha de
+# Google Play: https://mjandresverdu-rgb.github.io/app-ads.txt
+# En /golmetria/app-ads.txt no sirve de nada, porque ahi no lo busca nadie.
+#
+# El ultimo campo es el identificador de Google en la autoridad de certificacion del IAB. Es
+# constante para todo el mundo, no es un secreto y no hay que cambiarlo.
+google.com, pub-2268309349971374, DIRECT, f08c47fec0942fa0
