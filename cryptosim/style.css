@@ -1,0 +1,212 @@
+/*
+  Golmetria — sitio público.
+
+  La paleta es la misma que la de la app (bet-android/.../designsystem/Color.kt), a propósito:
+  quien llegue aquí desde la ficha de Play tiene que reconocer el mismo producto. Tema oscuro
+  único, igual que la app, así que aquí no hay media query de esquema de color.
+*/
+
+:root {
+  --ground: #0b0e14;
+  --surface: #161b26;
+  --surface-hi: #212836;
+  --ink: #f2f3f5;
+  --ink-muted: #9aa3b5;
+  --ink-faint: #6b7486;
+  --rule: #39404f;
+  --rule-faint: #242b38;
+  --accent: #ff7a3d;
+
+  --sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --serif: "Literata", Georgia, "Times New Roman", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+.shell {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 5vw, 2rem);
+}
+
+/* ---------- Cabecera ---------- */
+
+.site-head {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: clamp(2rem, 6vw, 3.5rem) 0 clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.site-head svg {
+  width: 44px;
+  height: 44px;
+  flex: none;
+}
+
+.site-head .wordmark {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 1.35rem;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.site-head nav {
+  margin-left: auto;
+  display: flex;
+  gap: 1.1rem;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+}
+
+/* ---------- Tipografía ---------- */
+
+h1 {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: clamp(2rem, 6vw, 2.75rem);
+  line-height: 1.08;
+  letter-spacing: -0.032em;
+  text-wrap: balance;
+  margin: 0 0 1rem;
+}
+
+h2 {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  text-wrap: balance;
+  margin: 2.75rem 0 0.85rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--rule-faint);
+}
+
+h2:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+}
+
+h3 {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin: 1.75rem 0 0.5rem;
+}
+
+p {
+  margin: 0 0 1.1rem;
+}
+
+.lede {
+  font-size: 1.2rem;
+  line-height: 1.55;
+  color: var(--ink-muted);
+  margin-bottom: 2rem;
+}
+
+.updated {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin: 0 0 2.5rem;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 3px;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+ul {
+  margin: 0 0 1.1rem;
+  padding-left: 1.3rem;
+}
+
+li {
+  margin-bottom: 0.6rem;
+}
+
+strong {
+  font-family: var(--sans);
+  font-weight: 600;
+}
+
+/* ---------- Bloques ---------- */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--rule-faint);
+  padding: 1.4rem 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.card > :last-child {
+  margin-bottom: 0;
+}
+
+.card.plain-language {
+  border-left: 2px solid var(--accent);
+}
+
+.card.plain-language p:first-child {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+
+/* ---------- Pie ---------- */
+
+footer {
+  margin-top: 4rem;
+  padding: 2rem 0 4rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+}
+
+footer p {
+  margin: 0 0 0.5rem;
+}
+
+footer a {
+  color: var(--ink-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
