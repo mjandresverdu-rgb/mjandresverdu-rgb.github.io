@@ -1,0 +1,159 @@
+/*
+  SharpEdge Tips — overrides on the shared site stylesheet.
+
+  The root `style.css` is Golmetria's: blue-black grounds and an orange accent, taken from that
+  app's palette on purpose so the page and the app look like one product. The same reasoning
+  applied here gives the opposite answer — these pages belong to a different app, shipping from
+  the same Play account, and the whole design brief for SharpEdge was maximum visual distance from
+  Golmetria. A SharpEdge privacy policy in Golmetria orange undoes that at the one moment a
+  reviewer is looking closely.
+
+  Loaded *after* the shared sheet and overriding only its custom properties, plus the few elements
+  it never styled. Layout, spacing and typography stay shared deliberately: the site should read as
+  one publisher with two products, not two unrelated sites.
+
+  Palette mirrors sharpedge-android/.../designsystem/Color.kt — bet365-adjacent green and yellow on
+  charcoal rather than on blue-black.
+*/
+
+:root {
+  /* Charcoal, not blue-black. The single biggest tell between the two sites at a glance. */
+  --ground: #141414;
+  --surface: #1f1f1f;
+  --surface-hi: #2b2b2b;
+
+  /* Neutral-warm greys. Golmetria's are blue-tinted (#9aa3b5); keeping those would drag the
+     charcoal back towards its palette. */
+  --ink: #f5f5f4;
+  --ink-muted: #a8a8a3;
+  --ink-faint: #75756f;
+  --rule: #3a3a38;
+  --rule-faint: #262624;
+
+  /*
+    Links and rules. Not the brand green itself (#14805E): against this ground that measures
+    3.75:1, which fails WCAG AA for body text and is genuinely hard to read on a phone outdoors.
+    This is the same hue lifted until it measures 7.88:1 — AAA, with room to spare — so it still
+    reads as the app's green while being legible.
+  */
+  --accent: #24c08a;
+
+  /* The brand green exactly, for solid fills where text sits on top of it rather than in it. */
+  --accent-deep: #14805e;
+
+  /*
+    The app's yellow, and used here as sparingly as the app uses it: in the app it marks the odds
+    and nothing else. Spending it on ordinary links would flatten the one signal it carries.
+  */
+  --accent-alt: #ffe100;
+}
+
+/*
+  The shared sheet has no table styles and both privacy pages are built around one — the "what is
+  collected, by whom, and why" table is the substance of the document. Unstyled, it renders as
+  cramped rows with no column separation, which is where a reader stops reading.
+*/
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0 2rem;
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  /* Long third-party names ("Google AdMob") must not force the page to scroll sideways. */
+  overflow-wrap: anywhere;
+}
+
+th {
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  border-bottom: 1px solid var(--rule);
+  padding: 0 0.9rem 0.6rem 0;
+  vertical-align: bottom;
+}
+
+td {
+  border-bottom: 1px solid var(--rule-faint);
+  padding: 0.85rem 0.9rem 0.85rem 0;
+  vertical-align: top;
+  color: var(--ink-muted);
+}
+
+/* The first column names the thing being collected; it should read as the row's subject. */
+td:first-child {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+th:last-child,
+td:last-child {
+  padding-right: 0;
+}
+
+/*
+  Below roughly 30rem a three-column table cannot be read without pinching. Rather than let it
+  scroll sideways — which hides the third column, the one that says *why* — each row becomes a
+  block with its own heading.
+*/
+@media (max-width: 30rem) {
+  table,
+  tbody,
+  tr,
+  td {
+    display: block;
+    width: 100%;
+  }
+
+  /*
+    The header row goes. These tables have no <thead> — the headings are a plain first <tr> of
+    <th> — so hiding the cells alone would leave an empty bordered strip where the row used to be.
+    The :has() rule removes the row itself; the th rule below is the fallback for anything that
+    does not understand it, where an empty strip is still better than stray headings.
+  */
+  tr:has(> th) {
+    display: none;
+  }
+
+  th {
+    display: none;
+  }
+
+  tr {
+    border-bottom: 1px solid var(--rule-faint);
+    padding: 0.9rem 0;
+  }
+
+  td {
+    border: 0;
+    padding: 0.15rem 0;
+  }
+
+  /*
+    First cell as the row's heading, in ordinary sentence case. An earlier version set it in
+    uppercase small-caps as though it were a label — wrong for this table, where the first column
+    holds the longest text on the page ("Identificador de publicidad y datos estándar de petición
+    de anuncio…"). Uppercasing a sentence that long makes it harder to read, not easier.
+  */
+  td:first-child {
+    color: var(--ink);
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+}
+
+/* The site logo, so the mark on the page matches the one on the phone. */
+.site-head svg rect:first-of-type {
+  fill: var(--accent-deep);
+}
+
+/*
+  The yellow's one job on these pages, mirroring the app: the small-caps label on a highlighted
+  block. The border stays green so the yellow stays the exception.
+*/
+.card.plain-language p:first-child {
+  color: var(--accent-alt);
+}
