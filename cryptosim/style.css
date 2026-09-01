@@ -1,9 +1,14 @@
 /*
-  Golmetria — sitio público.
+  CryptoSim — sitio público.
 
-  La paleta es la misma que la de la app (bet-android/.../designsystem/Color.kt), a propósito:
+  La paleta es la misma que la de la app (cryptosim-android/.../designsystem/Color.kt), a propósito:
   quien llegue aquí desde la ficha de Play tiene que reconocer el mismo producto. Tema oscuro
   único, igual que la app, así que aquí no hay media query de esquema de color.
+
+  Los grises son los que comparten todas las apps del estudio. Lo que cambia es el acento: aquí es
+  el verde azulado de CryptoSim, no el naranja de Golmetria. El acento tiñe los enlaces, el anillo
+  de foco, y el borde y la etiqueta de la tarjeta destacada — que es todo el color que tiene la
+  página, así que basta con este token para que el sitio sea reconociblemente de esta app.
 */
 
 :root {
@@ -15,7 +20,9 @@
   --ink-faint: #6b7486;
   --rule: #39404f;
   --rule-faint: #242b38;
-  --accent: #ff7a3d;
+
+  /* BrandTeal. Contrasta 8,4:1 contra --ground, por encima del 7:1 que pide la AAA para texto. */
+  --accent: #00c2a8;
 
   --sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
   --serif: "Literata", Georgia, "Times New Roman", serif;
