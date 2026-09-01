@@ -1,0 +1,54 @@
+/*
+  LoreApps Studio — portada, y solo la portada.
+
+  El `style.css` compartido lleva el naranja de Golmetria porque nació con esa app y sus páginas
+  son suyas. La portada no: presenta tres aplicaciones, y vestida con los colores de una de ellas
+  hace que quien llega desde la ficha de Play de SharpEdge aterrice en una página naranja con el
+  icono de otra app arriba. No es un error, pero tampoco es neutral, y la neutralidad es justo lo
+  que se le pide a la página de un editor.
+
+  Se carga **después** del `<style>` en línea del propio index.html, porque ahí vive la regla del
+  hover de las filas. Los selectores de aquí llevan `body` delante a propósito: suben la
+  especificidad lo justo para ganar aunque el `<link>` acabe colocado antes, que es el error fácil
+  al editar el fichero a mano.
+
+  No toca `style.css`. Las páginas de Golmetria siguen exactamente igual.
+*/
+
+:root {
+  /*
+    El acento, neutralizado. Casi blanco: en esta página los enlaces ya van subrayados, así que el
+    subrayado hace de señal y el color no tiene que gritar.
+
+    Da 15.0:1 contra el fondo. El naranja que sustituye daba 7.5:1, que también pasaba de sobra —
+    el cambio es de marca, no de legibilidad.
+  */
+  --accent: #dfe3ea;
+}
+
+/*
+  El hover de las filas de aplicación necesita arreglo aparte, y es la razón por la que esto no es
+  una sola línea.
+
+  La regla original tiñe el nombre de la app con `var(--accent)`. Con el acento ya neutralizado,
+  ese nombre pasaría de #f2f3f5 a #dfe3ea al pasar el ratón: un cambio que nadie ve, y una fila
+  entera que deja de parecer pulsable. La señal se recupera sin color — fondo de la fila y
+  subrayado — que es lo que corresponde a una página que no quiere tener acento.
+*/
+body .app-row:hover,
+body .app-row:focus-visible {
+  background: var(--surface);
+}
+
+body .app-row:hover .app-name,
+body .app-row:focus-visible .app-name {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* La flecha acompaña al hover, para que la fila se sienta como una sola cosa. */
+body .app-row:hover .chevron,
+body .app-row:focus-visible .chevron {
+  color: var(--ink-muted);
+}
