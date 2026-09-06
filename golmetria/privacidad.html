@@ -30,14 +30,15 @@
 
   <main>
     <h1>Política de privacidad</h1>
-    <p class="updated">Última actualización: 24 de agosto de 2026</p>
+    <p class="updated">Última actualización: 6 de septiembre de 2026</p>
 
     <div class="card plain-language">
       <p>En una línea</p>
       <p>
         Golmetria no tiene cuentas y no le pide ningún dato personal. Lo único que sale de su
-        móvil son las peticiones para descargar los pronósticos, y los datos que Google necesita
-        para mostrar la publicidad que paga la aplicación.
+        móvil son las peticiones para descargar los pronósticos, los datos que Google necesita
+        para mostrar la publicidad que paga la aplicación y, si acepta recibir avisos, una
+        dirección de entrega anónima para las notificaciones.
       </p>
     </div>
 
@@ -122,6 +123,10 @@
     </p>
     <ul>
       <li>Qué pronósticos le han sido ya notificados, para no repetir el aviso.</li>
+      <li>
+        Qué pronósticos ha marcado para seguirlos, para que la marca siga ahí cuando vuelva a
+        entrar. Esa lista es una nota suya para usted: no la vemos y no viaja a ningún sitio.
+      </li>
       <li>Contadores de frecuencia de anuncios, para no mostrarle más de la cuenta.</li>
       <li>Su decisión sobre el consentimiento publicitario.</li>
     </ul>
@@ -129,10 +134,43 @@
 
     <h3>5. Notificaciones</h3>
     <p>
-      Los avisos de pronóstico nuevo se generan <strong>en su propio dispositivo</strong>: la
-      aplicación consulta periódicamente el servidor y, si hay algo nuevo, crea la notificación
-      localmente. No usamos notificaciones push, no existe ningún identificador de dispositivo
-      registrado en nuestros sistemas y no empleamos Firebase Cloud Messaging.
+      Si concede el permiso de notificaciones, la aplicación pide a <strong>Firebase Cloud
+      Messaging</strong> —un servicio de Google— una <strong>dirección de entrega</strong> para su
+      dispositivo y la registra en nuestro servidor. Es lo que permite avisarle de un pronóstico
+      nuevo cuando el móvil está en reposo.
+    </p>
+    <p>
+      De ese registro guardamos <strong>tres cosas y ninguna más</strong>: esa dirección, la fecha
+      en que se dio de alta y la fecha en que se la vio por última vez. No la acompañamos de
+      cuenta, ni de dirección IP, ni de idioma, ni de nada que permita saber de quién es.
+    </p>
+    <p>
+      <strong>Sólo se registra si usted ha concedido el permiso.</strong> Si no lo ha concedido, no
+      se pide ninguna dirección y no se envía nada a nuestro servidor. Si lo concede más adelante,
+      el registro se hace en el siguiente arranque de la aplicación.
+    </p>
+    <p>
+      El aviso que enviamos <strong>no lleva texto</strong>: viajan sólo un número y, cuando
+      procede, los nombres de los dos equipos. La frase que usted lee la escribe la propia
+      aplicación, en el idioma de su teléfono.
+    </p>
+    <p>
+      La base jurídica es su <strong>consentimiento</strong>, que presta al conceder el permiso de
+      notificaciones y que puede retirar cuando quiera.
+    </p>
+    <p>
+      <strong>Cómo se borra esa dirección.</strong> Si desinstala la aplicación, Firebase deja de
+      aceptarla y nosotros la eliminamos de la base de datos en el primer envío posterior, sin que
+      usted tenga que hacer nada. Si lo que hace es sólo desactivar las notificaciones en los
+      ajustes de Android, deja de recibir avisos de inmediato y la aplicación no vuelve a
+      registrarse, pero <strong>la dirección ya registrada puede permanecer en nuestra base de
+      datos</strong> hasta que Firebase la dé por caducada. Si quiere que desaparezca con certeza,
+      desinstale la aplicación.
+    </p>
+    <p>
+      Además, y como red de seguridad para móviles sin servicios de Google o para cuando un aviso
+      no llega, la aplicación sigue consultando el servidor cada cierto tiempo por su cuenta, igual
+      que antes. Esa comprobación no envía ninguna dirección ni identificador.
     </p>
     <p>
       Puede desactivar las notificaciones desde los ajustes de Android sin que ello afecte al resto
@@ -144,6 +182,12 @@
       La aplicación no incorpora ningún SDK de analítica ni de seguimiento de comportamiento
       —ni Google Analytics, ni Firebase Analytics, ni de terceros—. Más allá de la publicidad
       descrita arriba, nadie mide lo que usted hace dentro de la aplicación.
+    </p>
+    <p>
+      Conviene precisarlo porque arriba se nombra Firebase: de Firebase usamos
+      <strong>únicamente</strong> el servicio de mensajería, que sirve para entregar la
+      notificación y nada más. No está incluido Firebase Analytics, ni Crashlytics, ni ningún otro
+      producto de esa familia.
     </p>
 
     <h2>Menores</h2>
@@ -166,15 +210,23 @@
       identificador de publicidad desde los ajustes de Android.
     </p>
     <p>
+      La dirección de entrega de las notificaciones es la única excepción, y es la única que se
+      puede borrar de verdad. La forma fiable de hacerlo es <strong>desinstalar la
+      aplicación</strong>: eso la invalida y nosotros la eliminamos solos. Decimos «fiable» porque
+      tampoco de esa dirección sabemos de quién es —sólo que existe—, así que si nos escribe
+      pidiendo que la borremos no tenemos manera de averiguar cuál de las que tenemos es la suya.
+    </p>
+    <p>
       Para ejercer cualquier derecho o resolver una duda, escriba a
       <a href="mailto:ffiliugomez@gmail.com">ffiliugomez@gmail.com</a>.
     </p>
 
     <h2>Transferencias internacionales</h2>
     <p>
-      Google puede tratar los datos publicitarios descritos en servidores situados fuera del
-      Espacio Económico Europeo, amparándose en los mecanismos de transferencia previstos en la
-      normativa. Los detalles están en la política de privacidad de Google enlazada más arriba.
+      Google puede tratar en servidores situados fuera del Espacio Económico Europeo tanto los
+      datos publicitarios descritos como la dirección de entrega de las notificaciones, amparándose
+      en los mecanismos de transferencia previstos en la normativa. Los detalles están en la
+      política de privacidad de Google enlazada más arriba.
     </p>
 
     <h2>Cambios en esta política</h2>

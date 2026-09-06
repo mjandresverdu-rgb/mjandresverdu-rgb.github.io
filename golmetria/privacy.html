@@ -30,14 +30,15 @@
 
   <main>
     <h1>Privacy policy</h1>
-    <p class="updated">Last updated: 24 August 2026</p>
+    <p class="updated">Last updated: 6 September 2026</p>
 
     <div class="card plain-language">
       <p>In one line</p>
       <p>
         Golmetria has no accounts and asks you for no personal data. The only things that leave
-        your phone are the requests that download the predictions, and the data Google needs to
-        show the advertising that pays for the app.
+        your phone are the requests that download the predictions, the data Google needs to show
+        the advertising that pays for the app, and — if you agree to receive alerts — an anonymous
+        delivery address for the notifications.
       </p>
     </div>
 
@@ -119,6 +120,10 @@
     </p>
     <ul>
       <li>Which predictions you have already been notified about, so the alert is not repeated.</li>
+      <li>
+        Which predictions you have marked to follow, so the mark is still there when you come
+        back. That list is a note from you to yourself: we never see it and it goes nowhere.
+      </li>
       <li>Ad frequency counters, so you are not shown more than you should be.</li>
       <li>Your advertising consent decision.</li>
     </ul>
@@ -126,10 +131,42 @@
 
     <h3>5. Notifications</h3>
     <p>
-      New-prediction alerts are generated <strong>on your own device</strong>: the app periodically
-      queries the server and, if something is new, creates the notification locally. We use no push
-      notifications, no device identifier is registered in our systems, and we do not use Firebase
-      Cloud Messaging.
+      If you grant the notification permission, the app asks <strong>Firebase Cloud
+      Messaging</strong> — a Google service — for a <strong>delivery address</strong> for your
+      device and registers it with our server. That is what lets us tell you about a new prediction
+      while your phone is asleep.
+    </p>
+    <p>
+      Of that registration we keep <strong>three things and nothing else</strong>: the address, the
+      date it was created, and the date it was last seen. We attach no account to it, no IP
+      address, no language, nothing that would say whose it is.
+    </p>
+    <p>
+      <strong>It is only registered if you have granted the permission.</strong> If you have not,
+      no address is requested and nothing is sent to our server. If you grant it later, the
+      registration happens the next time the app starts.
+    </p>
+    <p>
+      The alert we send <strong>carries no text</strong>: only a number travels, and where relevant
+      the names of the two clubs. The sentence you read is written by the app itself, in your
+      phone's language.
+    </p>
+    <p>
+      The legal basis is your <strong>consent</strong>, given when you grant the notification
+      permission and withdrawable at any time.
+    </p>
+    <p>
+      <strong>How that address is deleted.</strong> If you uninstall the app, Firebase stops
+      accepting it and we remove it from the database on the next send, with nothing for you to do.
+      If instead you simply turn notifications off in Android settings, you stop receiving alerts
+      straight away and the app stops registering, but <strong>the address already registered may
+      remain in our database</strong> until Firebase treats it as expired. If you want it gone for
+      certain, uninstall the app.
+    </p>
+    <p>
+      As a safety net for phones without Google services, and for when an alert does not arrive,
+      the app also keeps checking the server periodically on its own, exactly as before. That check
+      sends no address and no identifier.
     </p>
     <p>
       You can turn notifications off in Android settings without affecting anything else in the
@@ -141,6 +178,11 @@
       The app includes no analytics or behavioural tracking SDK — not Google Analytics, not
       Firebase Analytics, none from third parties. Beyond the advertising described above, nobody
       measures what you do inside the app.
+    </p>
+    <p>
+      Worth spelling out, since Firebase is named above: of Firebase we use <strong>only</strong>
+      the messaging service, which delivers the notification and does nothing else. Firebase
+      Analytics is not included, nor Crashlytics, nor any other product in that family.
     </p>
 
     <h2>Children</h2>
@@ -162,15 +204,22 @@
       app, and resetting or deleting your advertising ID in Android settings.
     </p>
     <p>
+      The notification delivery address is the one exception, and the only thing that can genuinely
+      be deleted. The reliable way to do it is to <strong>uninstall the app</strong>: that
+      invalidates the address and we remove it ourselves. We say "reliable" because we do not know
+      whose that address is either — only that it exists — so if you write asking us to delete it,
+      we have no way of working out which of the ones we hold is yours.
+    </p>
+    <p>
       To exercise any right, or to ask a question, write to
       <a href="mailto:ffiliugomez@gmail.com">ffiliugomez@gmail.com</a>.
     </p>
 
     <h2>International transfers</h2>
     <p>
-      Google may process the advertising data described above on servers outside the European
-      Economic Area, relying on the transfer mechanisms provided for in law. The details are in the
-      Google privacy policy linked above.
+      Google may process both the advertising data described above and the notification delivery
+      address on servers outside the European Economic Area, relying on the transfer mechanisms
+      provided for in law. The details are in the Google privacy policy linked above.
     </p>
 
     <h2>Changes to this policy</h2>
