@@ -1,0 +1,103 @@
+/*
+  Cuatro Mochilas — ajustes sobre la hoja común de la web (../style.css).
+
+  Como en SharpEdge, solo se cambian los colores: la maquetación y la tipografía siguen siendo
+  las comunes, para que la web se lea como un mismo editor con varias apps. La paleta es la de la
+  app, clara: crema de fondo, teja, mostaza y azul, los colores del icono.
+*/
+
+:root {
+  --ground: #f4efe6;
+  --surface: #fbf8f2;
+  --surface-hi: #ede6da;
+
+  --ink: #2b2420;
+  --ink-muted: #5e544c;
+  --ink-faint: #82776d;
+  --rule: #d6cbbd;
+  --rule-faint: #e4dccf;
+
+  /* Teja oscuro: el teja del icono (#C2613A) no llega al contraste AA para texto sobre crema */
+  --accent: #a34e2c;
+  --accent-alt: #2f7f95;
+}
+
+/* La hoja común no tiene tablas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0 2rem;
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+th {
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  border-bottom: 1px solid var(--rule);
+  padding: 0 0.9rem 0.6rem 0;
+}
+
+td {
+  border-bottom: 1px solid var(--rule-faint);
+  padding: 0.85rem 0.9rem 0.85rem 0;
+  vertical-align: top;
+  color: var(--ink-muted);
+}
+
+td:first-child {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+@media (max-width: 30rem) {
+  table, tbody, tr, td { display: block; width: 100%; }
+  tr:has(> th), th { display: none; }
+  tr { border-bottom: 1px solid var(--rule-faint); padding: 0.9rem 0; }
+  td { border: 0; padding: 0.15rem 0; }
+  td:first-child { margin-bottom: 0.25rem; }
+}
+
+/* Las guías disponibles, como tarjetas */
+.guias {
+  display: grid;
+  gap: 0.9rem;
+  margin: 1.25rem 0 1.5rem;
+}
+
+.guia {
+  background: var(--surface);
+  border: 1px solid var(--rule-faint);
+  border-left: 3px solid var(--accent);
+  padding: 1rem 1.25rem;
+}
+
+.guia h3 {
+  margin: 0 0 0.3rem;
+}
+
+.guia p {
+  margin: 0;
+  font-size: 0.98rem;
+  color: var(--ink-muted);
+}
+
+.guia.en-mente {
+  border-left-color: var(--accent-alt);
+}
+
+.etiqueta {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-alt);
+  margin-left: 0.4rem;
+}
