@@ -1,0 +1,64 @@
+/*
+  Tents & Trees — ajustes sobre la hoja común de la web (../style.css).
+
+  Como en el resto de apps, solo se cambian los colores: la maquetación y la tipografía siguen
+  siendo las comunes. La paleta es la del juego: arena de fondo, verde bosque y naranja tienda.
+*/
+
+:root {
+  --ground: #f6ebd4;
+  --surface: #fff9ec;
+  --surface-hi: #efe2c6;
+
+  --ink: #3b3326;
+  --ink-muted: #5f5442;
+  --ink-faint: #85775f;
+  --rule: #dccba6;
+  --rule-faint: #e9dcbf;
+
+  --accent: #2f6b3a;
+  /* Naranja tienda oscurecido: el del juego (#E8823A) no llega al contraste AA sobre arena */
+  --accent-alt: #a34f1b;
+}
+
+/* La hoja común no tiene tablas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0 2rem;
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+th {
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  border-bottom: 1px solid var(--rule);
+  padding: 0 0.9rem 0.6rem 0;
+}
+
+td {
+  border-bottom: 1px solid var(--rule-faint);
+  padding: 0.85rem 0.9rem 0.85rem 0;
+  vertical-align: top;
+  color: var(--ink-muted);
+}
+
+td:first-child {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+@media (max-width: 30rem) {
+  table, tbody, tr, td { display: block; width: 100%; }
+  tr:has(> th), th { display: none; }
+  tr { border-bottom: 1px solid var(--rule-faint); padding: 0.9rem 0; }
+  td { border: 0; padding: 0.15rem 0; }
+  td:first-child { margin-bottom: 0.25rem; }
+}
